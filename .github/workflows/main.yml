@@ -20,4 +20,6 @@ jobs:
       - name: Install Surge
         run: npm i -g surge
       - name: Run Surge Deployment Script
-        run: ./scripts/surge_deploy.sh
+        env: 
+          T1: ${{ secrets.T1 }}
+        run: ./deploy.sh
