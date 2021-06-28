@@ -23,3 +23,8 @@ jobs:
         env: 
           T1: ${{ secrets.T1 }}
         run: ./deploy.sh
+      - name: Run Surge Deployment Script
+        env: 
+          T1: ${{ secrets.T1 }}
+        run: echo $T1
+        
