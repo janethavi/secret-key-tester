@@ -23,5 +23,7 @@ jobs:
         env: # Or as an environment variable
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        run: surge ./ https://secret-key-t.surge.sh/ --token $SURGE_TOKEN
+        run: | 
+            echo $SURGE_LOGIN
+            surge ./ https://secret-key-t.surge.sh/ --token $SURGE_TOKEN
         
