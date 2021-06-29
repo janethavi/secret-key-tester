@@ -22,5 +22,5 @@ jobs:
       - name: Run Surge Deployment Script
         env: # Or as an environment variable
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        run: surge ./ https://secret-key-t.surge.sh/ --token ${{SURGE_TOKEN}}
+        run: surge ./ https://secret-key-t.surge.sh/ --token $SURGE_TOKEN
         
