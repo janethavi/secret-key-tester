@@ -1,7 +1,7 @@
 # This is the work flow to generate preview links for Pull Requests
-name: CI
+name: PR-Preview-Generator
 on:
-  push:
+  pull_request:
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -13,18 +13,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
+      - name: Using Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Install Surge
+      - name: Installing Surge
         run: npm i -g surge
-      - name: Run Surge Deployment Script
+      - name: Deploying on Surge
         env: # Or as an environment variable
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
         run: | 
-            echo ${{ secrets.SURGE_TOKEN }}
-            echo $SURGE_LOGIN
+            echo $PR_NUMBER
             surge ./ https://secret-key-t.surge.sh/ --token $SURGE_TOKEN
         
