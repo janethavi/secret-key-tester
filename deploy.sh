@@ -6,3 +6,4 @@ if [ ! -z "$env:T1" ] ; then
     echo "Running the Surge deployment"
 fi
 #OK
+#ok2
