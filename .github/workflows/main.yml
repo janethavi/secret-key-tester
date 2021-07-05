@@ -22,6 +22,5 @@ jobs:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
           DEPLOY_DOMAIN: pr-${{ github.event.number }}-heyhey.surge.sh
-        run: | 
-            surge ./ $DEPLOY_DOMAIN --token $SURGE_TOKEN
+        run: surge ./ $DEPLOY_DOMAIN --token $SURGE_TOKEN
         
